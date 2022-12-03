@@ -57,6 +57,11 @@ class CustomersController < ApplicationController
     end
   end
 
+  def import 
+    Customer.import(params[:file])
+    redirect_to customers_path, notice: "Customers Updated Successfully"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
@@ -67,5 +72,6 @@ class CustomersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def customer_params
       params.require(:customer).permit(:order_no, :date, :contact_email, :recipient_name, :recipient_phone, :delivery_country, :delivery_state, :delivery_city, :delivery_address, :postal_code, :uniq_id)
+      .with_defaults(uniq_id: SecureRandom.hex(10).upcase)
     end
 end

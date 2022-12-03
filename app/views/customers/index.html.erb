@@ -11,4 +11,11 @@
   <% end %>
 </div>
 
+<h3>Import Customers Details </h3>
+
+<%= form_tag import_customers_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload Customers Record" %>
+<% end %>
+
 <%= link_to "New customer", new_customer_path, class: "btn bg-success" %>
