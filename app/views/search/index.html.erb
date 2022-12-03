@@ -7,20 +7,20 @@
   <% @customers.each do |customer| %>
     <div class="card text-center">
       <div class="card-body">
-      <h3 class="card-title">PACKAGE NUMBER : <%=customer.uniq_id%></h3>
+        <h3 class="card-title">PACKAGE NUMBER : <%=customer.uniq_id%></h3>
       </div>
     </div>
 
 
     <% customer.movements.each do |movement| %>
 
-      <div class="card-body text-center">
-          <h3 class="card-header">
+      <div class="card text-center">
+          <h5 class="card-header">
             Tracking Update
-          </h3>
+          </h5>
 
-          <h5 class="card-title"> <%=movement.detail%> <h5>
-          <h1> <%= movement.tracking_time.strftime("%a, %b %d, %Y, %I:%M %p") %> <%=time_ago_in_words(movement.tracking_time) %> Ago</h1>
+          <p class="card-title"><strong> <%=movement.detail%> </strong><p>
+          <p> <%= movement.tracking_time.strftime("%a, %b %d, %Y, %I:%M %p") %> <%=time_ago_in_words(movement.tracking_time) %> Ago</p>
 
       </div>
 

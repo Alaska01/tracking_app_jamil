@@ -7,8 +7,8 @@
     <div class="card-body justify-content-center">
       <%= search_form_for(@query, url: search_path, method: :get, class:'d-flex') do |f| %>
         <div class="card-text">
-      <%=f.search_field :uniq_id_eq, placeholder: "Enter Tracking ID"%>
-      <%= f.submit %>
+      <%=f.search_field :uniq_id_eq, placeholder: "Enter Tracking ID All in Upercase"%>
+      <%= f.submit class: "btn bg-success m-1" %>
       </div>
     </div>
 <% end %>

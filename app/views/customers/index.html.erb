@@ -8,7 +8,7 @@
 <%= form_tag(customers_path, method: :get) do %>
   <%= text_field_tag 'search[date_from]', @search.date_from %>
   <%= text_field_tag 'search[date_to]', @search.date_to %>
-  <%= submit_tag 'Search' %>
+  <%= submit_tag 'Date Range Search', class: "btn bg-warning m-1  " %>
 <% end %>
 </div>
 
@@ -26,8 +26,8 @@
 <h3>Import Customers Details </h3>
 
 <%= form_tag import_customers_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Upload Customers Record" %>
+  <%= file_field_tag :file, class: "btn btn-default" %>
+  <%= submit_tag "Upload Customers Record", class: "btn bg-info m-1" %>
 <% end %>
 
 <%= link_to "New customer", new_customer_path, class: "btn bg-success" %>
