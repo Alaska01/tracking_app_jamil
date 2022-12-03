@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_no: 1
+  date: 2022-12-02
+  contact_email: MyString
+  recipient_name: MyString
+  recipient_phone: MyString
+  delivery_country: MyString
+  delivery_state: MyString
+  delivery_city: MyString
+  delivery_address: MyString
+  postal_code: MyString
+  uniq_id: MyString
+
+two:
+  order_no: 1
+  date: 2022-12-02
+  contact_email: MyString
+  recipient_name: MyString
+  recipient_phone: MyString
+  delivery_country: MyString
+  delivery_state: MyString
+  delivery_city: MyString
+  delivery_address: MyString
+  postal_code: MyString
+  uniq_id: MyString
