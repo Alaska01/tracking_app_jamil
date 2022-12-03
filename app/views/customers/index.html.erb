@@ -1,12 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
+<p style="color: green" class="alert alert-primary" >
+  SEARCH CUSTOMERS USING DATE RANGE BELOW, DEFAULT SEARCH IS 3 DAYS
+</p>
+
+<div class="p-3">
+<%= form_tag(customers_path, method: :get) do %>
+  <%= text_field_tag 'search[date_from]', @search.date_from %>
+  <%= text_field_tag 'search[date_to]', @search.date_to %>
+  <%= submit_tag 'Search' %>
+<% end %>
+</div>
+
 <h1>Customers</h1>
 
 <div id="customers">
   <% @customers.each do |customer| %>
     <%= render customer %>
     <p>
-      <%= link_to "Show this customer", customer_path(customer), class: "btn bg-info" %>
+      <%= link_to "Show this customer", customer_path(customer), class: "btn bg-info m-2" %>
     </p>
   <% end %>
 </div>
