@@ -5,10 +5,9 @@
 <div id="movements">
   <% @movements.each do |movement| %>
     <%= render movement %>
-    <p>
-      <%= link_to "Show this movement index", movement_path(movement) %>
-    </p>
+  
   <% end %>
 </div>
 
-<%= link_to "New movement", new_customer_movement_path %>
+<%= link_to "New movement", new_customer_movement_path, class: "btn bg-info" %>
+<%= link_to "Back To Customer", customer_path(@customer), class: "btn bg-success" %>

@@ -3,8 +3,8 @@
 <%= render @customer %>
 
 <div>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
-
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+  <%= link_to "Edit this customer", edit_customer_path(@customer), class: "btn bg-warning m-1" %> |
+  <%= link_to "Back to customers", customers_path, class: "btn default bg-success m-1" %>
+  <%= link_to "Update Customer Trackings", customer_movements_path(customer_id: @customer.id), class: "btn bg-info m-1" %>
+  <%= button_to "Destroy this customer", @customer, method: :delete, class: "btn default bg-danger m-1" %>
 </div>

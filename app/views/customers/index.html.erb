@@ -6,9 +6,9 @@
   <% @customers.each do |customer| %>
     <%= render customer %>
     <p>
-      <%= link_to "Show this customer", customer_path(customer) %>
+      <%= link_to "Show this customer", customer_path(customer), class: "btn bg-info" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New customer", new_customer_path %>
+<%= link_to "New customer", new_customer_path, class: "btn bg-success" %>
