@@ -1,0 +1,16 @@
+<div class="card text-center">
+  <div class="card-header">
+    Track Your Purchases
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Welcome To Jamil's Logistics</h5>
+    <div class="card-body justify-content-center">
+      <%= search_form_for(@query, url: search_path, method: :get, class:'d-flex') do |f| %>
+        <div class="card-text">
+      <%=f.search_field :uniq_id_eq, placeholder: "Enter Tracking ID"%>
+      <%= f.submit %>
+      </div>
+    </div>
+<% end %>
+  </div>
+</div>
