@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   root "search#index"
   devise_for :users do
     post '/users/sign_out' => 'devise/sessions#destroy'
