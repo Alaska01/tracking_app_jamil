@@ -1,3 +1,4 @@
+<% if current_user && current_user.user_admin %> 
 <div id="<%= dom_id movement %>">
   <p>
     <strong>Detail:</strong>
@@ -15,3 +16,5 @@
   </p>
 
 </div>
+
+<% end %>

@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
+<% if current_user && current_user.user_admin %> 
 <p style="color: green" class="alert alert-primary" >
   SEARCH CUSTOMERS USING DATE RANGE BELOW, DEFAULT SEARCH IS 3 DAYS
 </p>
@@ -31,3 +31,5 @@
 <% end %>
 
 <%= link_to "New customer", new_customer_path, class: "btn bg-success" %>
+
+<% end %>

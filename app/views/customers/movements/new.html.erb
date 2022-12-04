@@ -1,3 +1,4 @@
+<% if current_user && current_user.user_admin %> 
 <h1>New movement</h1>
 
 <%= render "form", movement: @movement %>
@@ -7,3 +8,5 @@
 <div>
   <%= link_to "Back to movements", customer_movements_path(customer_id: @customer.id), class: "btn bg-success m-1" %>
 </div>
+
+<% end %>

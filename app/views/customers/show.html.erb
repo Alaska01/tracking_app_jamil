@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
+<% if current_user && current_user.user_admin %> 
 <%= render @customer %>
 
 <div>
@@ -8,3 +8,5 @@
   <%= link_to "Update Customer Trackings", customer_movements_path(customer_id: @customer.id), class: "btn bg-info m-1" %>
   <%= button_to "Destroy this customer", @customer, method: :delete, class: "btn default bg-danger m-1" %>
 </div>
+
+<% end %>
