@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root "search#index"
   devise_for :users do
     post '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root "search#index"
+  
   get 'search', to: "search#index"
 
   resources :customers do
@@ -11,5 +12,7 @@ Rails.application.routes.draw do
     resources :movements, controller: 'customers/movements'
     
   end
+
+  # get "/", to: "search/index"
 
 end

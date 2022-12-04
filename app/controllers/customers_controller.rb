@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customer, only: %i[ show edit update destroy ]
 
   # GET /customers or /customers.json
@@ -68,7 +69,13 @@ class CustomersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_customer
-      @customer = Customer.find(params[:id])
+      if @customer.nil?
+        redirect_to root_path
+      else
+        @customer = Customer.find_by_id(params[:id])
+      end
+    # rescue => error
+    #  render notice: "#{error.message}"
     end
 
     # Only allow a list of trusted parameters through.

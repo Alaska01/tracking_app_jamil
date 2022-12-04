@@ -1,10 +1,16 @@
 class Customers::MovementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customer
   before_action :set_movement, only: %i[ show edit update destroy ]
 
   # GET /movements or /movements.json
   def index
-    @movements = @customer.movements
+    if @movements.nil?
+      redirect_to root_path
+    else
+      @movements = @customer.movements
+    end
+    
   end
 
   # GET /movements/1 or /movements/1.json
@@ -63,12 +69,20 @@ class Customers::MovementsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
-      @customer = Customer.find(params[:customer_id])
+      if @customer.nil?
+        redirect_to root_path
+      else
+        @customer = Customer.find_by_id(params[:customer_id])
+      end
     end
 
     def set_movement
       # @customer = Customer.find(params[:customer_id])
-      @movement = Movement.find(params[:id])
+      if @movement.nil?
+        redirect_to root_path
+      else
+        @movement = Movement.find_by_id(params[:id])
+      end
     end
 
     # Only allow a list of trusted parameters through.
