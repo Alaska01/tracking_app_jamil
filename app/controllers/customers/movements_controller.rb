@@ -5,12 +5,7 @@ class Customers::MovementsController < ApplicationController
 
   # GET /movements or /movements.json
   def index
-    if @movements.nil?
-      redirect_to root_path
-    else
-      @movements = @customer.movements
-    end
-    
+    @movements = @customer.movements
   end
 
   # GET /movements/1 or /movements/1.json
@@ -19,9 +14,7 @@ class Customers::MovementsController < ApplicationController
 
   # GET /movements/new
   def new
-    # @movement = Movement.new
     @movement = @customer.movements.build
-    # @movement = @customer.movements.build(movement_params)
   end
 
   # GET /movements/1/edit
@@ -69,20 +62,11 @@ class Customers::MovementsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
-      if @customer.nil?
-        redirect_to root_path
-      else
-        @customer = Customer.find_by_id(params[:customer_id])
-      end
+      @customer = Customer.find_by_id(params[:customer_id])
     end
 
     def set_movement
-      # @customer = Customer.find(params[:customer_id])
-      if @movement.nil?
-        redirect_to root_path
-      else
-        @movement = Movement.find_by_id(params[:id])
-      end
+      @movement = Movement.find_by_id(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

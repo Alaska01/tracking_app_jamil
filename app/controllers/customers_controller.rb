@@ -6,7 +6,6 @@ class CustomersController < ApplicationController
   def index
     @search = CustomerSearch.new(params[:search])
     @customers = @search.scope
-    # @customers = Customer.all
   end
 
   # GET /customers/1 or /customers/1.json
@@ -69,13 +68,7 @@ class CustomersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_customer
-      if @customer.nil?
-        redirect_to root_path
-      else
-        @customer = Customer.find_by_id(params[:id])
-      end
-    # rescue => error
-    #  render notice: "#{error.message}"
+      @customer = Customer.find_by_id(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
