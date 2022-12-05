@@ -62,11 +62,19 @@ class Customers::MovementsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
-      @customer = Customer.find_by_id(params[:customer_id])
+      if current_user.user_admin == true
+        @customer = Customer.find_by_id(params[:customer_id])
+      else
+        redirect_to root_path, notice: "You are not authorized to view this page"
+      end
     end
 
     def set_movement
-      @movement = Movement.find_by_id(params[:id])
+      if current_user.user_admin == true
+        @movement = Movement.find_by_id(params[:id])
+      else
+        redirect_to root_path, notice: "You are not authorized to view this page"
+      end
     end
 
     # Only allow a list of trusted parameters through.

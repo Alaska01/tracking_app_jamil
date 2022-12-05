@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :edit, :update, :edit]
   # get "/", to: "search/index"
 
+  # The Route Below Must Stay At the buttom to redirect any route not found
+
+  get '*path' => redirect('/')
 end

@@ -14,7 +14,11 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @customer = Customer.new
+    if current_user.user_admin == true
+      @customer = Customer.new
+    else
+      redirect_to root_path, notice: "You are not authorized to view this page"
+    end
   end
 
   # GET /customers/1/edit
@@ -59,16 +63,24 @@ class CustomersController < ApplicationController
     end
   end
 
-  def import 
-    Customer.import(params[:file])
-    redirect_to customers_path, notice: "Customers Updated Successfully"
+  def import
+    if current_user.user_admin == true 
+      Customer.import(params[:file])
+      redirect_to customers_path, notice: "Customers Updated Successfully"
+    else
+      redirect_to root_path, notice: "You are not authorized to view this page"
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
 
     def set_customer
-      @customer = Customer.find_by_id(params[:id])
+      if current_user.user_admin == true
+        @customer = Customer.find_by_id(params[:id])
+      else
+        redirect_to root_path, notice: "You are not authorized to view this page"
+      end
     end
 
     # Only allow a list of trusted parameters through.

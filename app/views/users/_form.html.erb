@@ -1,0 +1,26 @@
+<div class="card m-3">
+<%= form_with(model: @user) do |form| %>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email %> |
+    <%= @user.email %>
+  </div>
+
+  <div>
+    <%= form.label :user_admin_privilege %> | 
+    <h5 class="btn btn-success"><%= @user.user_admin %></h5>
+  </div>
+
+<% end %>
+</div>

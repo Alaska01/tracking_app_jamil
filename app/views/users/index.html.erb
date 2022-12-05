@@ -1,2 +1,4 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users List</h1>
+<% @users.each do |user| %>
+  <p class="card m-3 p-2"> <%=user.email %> | Has User Admin Privilege <%=user.user_admin %> | <%= link_to "Edit Admin Privilege", edit_user_path(user) %></p>
+<% end %>

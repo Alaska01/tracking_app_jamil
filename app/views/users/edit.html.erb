@@ -1,0 +1,35 @@
+<div class="card">
+
+<% if current_user && current_user.user_admin %>
+  <%= form_with(model: @user) do |form| %>
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="m-2">
+      <%= form.label :email %> | <%= @user.email %>
+      <%= form.hidden_field  :email %>
+    </div>
+
+    <div class="m-2">
+      <p><%= form.label :user_admin_right %> |   
+      <%= form.select :user_admin, [true, false] %> </p>
+    
+    </div>
+
+
+    <div class="m-2">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+<% end %>
+</div>
