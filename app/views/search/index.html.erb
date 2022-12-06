@@ -5,8 +5,8 @@
 
   <% if @customers.size < 2 %>
   <% @customers.each do |customer| %>
-    <div class="card text-center">
-      <div class="card-body">
+    <div class="card text-center m-3">
+      <div class="card-body ">
         <h3 class="card-title">PACKAGE NUMBER : <%=customer.uniq_id%></h3>
       </div>
     </div>
@@ -14,7 +14,7 @@
 
     <% customer.movements.each do |movement| %>
 
-      <div class="card text-center">
+      <div class="card text-center m-3">
           <h5 class="card-header">
             Tracking Update
           </h5>

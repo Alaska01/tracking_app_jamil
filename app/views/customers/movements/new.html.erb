@@ -1,12 +1,13 @@
 <% if current_user && current_user.user_admin %> 
+<div class="card m-3 p-2">
 <h1>New movement</h1>
 
 <%= render "form", movement: @movement %>
 
 <br>
-
+</div>
 <div>
-  <%= link_to "Back to movements", customer_movements_path(customer_id: @customer.id), class: "btn bg-success m-1" %>
+  <%= link_to "Back to movements", customer_movements_path(customer_id: @customer.id), class: "btn bg-success m-3" %>
 </div>
 
 <% end %>

@@ -1,5 +1,5 @@
 <% if current_user.super_admin && current_user.user_admin %>
-<h1>Users List</h1>
+<h1 class="card m-1 p-1">Users List</h1>
 <% @users.each do |user| %>
   <div class="card m-3 p-2">
     <p><%=user.email %> </p>

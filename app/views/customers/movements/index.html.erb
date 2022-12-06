@@ -1,13 +1,15 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="card m-3 p-3">
 <h1>Movements</h1>
 
 <div id="movements">
   <% @movements.each do |movement| %>
-    <%= render movement %>
+    <div class="card m-2 p-2">
+      <%= render movement %>
+    </div>
   
   <% end %>
 </div>
-
-<%= link_to "New movement", new_customer_movement_path, class: "btn bg-info" %>
-<%= link_to "Back To Customer", customer_path(@customer), class: "btn bg-success" %>
+</div>
+<%= link_to "New movement", new_customer_movement_path, class: "btn bg-info m-3" %>
+<%= link_to "Back To Customer", customer_path(@customer), class: "btn bg-success m-3" %>
