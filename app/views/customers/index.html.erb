@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <% if current_user && current_user.user_admin %> 
-<p style="color: green" class="alert alert-primary" >
+<p style="color: green" class="alert alert-primary m-3" >
   SEARCH CUSTOMERS USING DATE RANGE BELOW, DEFAULT SEARCH IS 3 DAYS
 </p>
 
@@ -11,25 +11,29 @@
   <%= submit_tag 'Date Range Search', class: "btn bg-warning m-1  " %>
 <% end %>
 </div>
-
+<div class="card m-3 p-2">
 <h1>Customers</h1>
 
-<div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer_path(customer), class: "btn bg-info m-2" %>
-    </p>
-  <% end %>
+  <div id="customers">
+    <% @customers.each do |customer| %>
+      <div class="card m-3 p-3">
+      <%= render customer %>
+      </div>
+      <p>
+        <%= link_to "Show this customer", customer_path(customer), class: "btn bg-info m-2" %>
+      </p>
+    <% end %>
+  </div>
 </div>
 
-<h3>Import Customers Details </h3>
+
+<h3 class="m-3 p-2">Import Customers Details </h3>
 
 <%= form_tag import_customers_path, multipart: true do %>
   <%= file_field_tag :file, class: "btn btn-default" %>
   <%= submit_tag "Upload Customers Record", class: "btn bg-info m-1" %>
 <% end %>
 
-<%= link_to "New customer", new_customer_path, class: "btn bg-success" %>
+<%= link_to "New customer", new_customer_path, class: "btn bg-success m-3" %>
 
 <% end %>

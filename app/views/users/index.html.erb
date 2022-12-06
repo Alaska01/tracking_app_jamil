@@ -1,7 +1,12 @@
 <% if current_user.super_admin && current_user.user_admin %>
 <h1>Users List</h1>
 <% @users.each do |user| %>
-  <p class="card m-3 p-2"> <%=user.email %> | | Has User Admin Privilege <%=user.user_admin %> | | Has Super Admin Privilege <%=user.super_admin %> |<%= link_to "Edit Admin Privilege", edit_user_path(user) %></p>
+  <div class="card m-3 p-2">
+    <p><%=user.email %> </p>
+    <p> Has User Admin Privilege <span class="bg-warning m-3 p-1 rounded"><%=user.user_admin %></span> </p>
+     <p>Has Super Admin Privilege <span class="bg-success m-3 p-1 rounded"><%= user.super_admin %> </span></p>
+     <p><%= link_to "Edit Admin Privilege", edit_user_path(user), class: " bg-success text-white m-3 p-1 rounded" %> </p>
+  </div>
 <% end %>
 
 <% end %>

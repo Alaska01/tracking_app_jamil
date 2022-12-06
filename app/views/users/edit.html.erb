@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card m-3">
 
 <% if current_user && current_user.user_admin %>
   <%= form_with(model: @user) do |form| %>
@@ -20,14 +20,14 @@
     </div>
 
     <div class="m-2">
-      <p><%= form.label :user_admin_right %> |   
-      <%= form.select :user_admin, [true, false] %> </p>
+      <p><span class="bg-warning m-2 p-1 rounded"><%= form.label :user_admin_right %> </span>|   
+      <span class="bg-success m-2 p-1 rounded"> <%= form.select :user_admin, [true, false] %></span> </p>
     
     </div>
 
 
     <div class="m-2">
-      <%= form.submit %>
+      <%= form.submit class: "btn bg-success" %>
     </div>
   <% end %>
 
