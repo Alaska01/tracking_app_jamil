@@ -25,17 +25,17 @@ default: &default
 
 development:
   <<: *default
-  database: jamiltracker_jamil_development
+  database: jamiltracker_b_jamil_development
 
 test:
   <<: *default
-  database: jamiltracker_jamil_test
+  database: jamiltracker_b_jamil_test
 
 #   production:
 #     url: <%= ENV["MY_APP_DATABASE_URL"] %>
 
 production:
   <<: *default
-  database: jamiltracker_jamil_production
+  database: jamiltracker_b_jamil_production
   username: jamiltracker
   password: <%= ENV["JAMILTRACKER_DATABASE_PASSWORD"] %>
