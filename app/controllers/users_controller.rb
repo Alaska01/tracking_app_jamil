@@ -29,6 +29,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:user_admin, :email, :encrypted_password,
       :reset_password_token, :reset_password_sent_at, :remember_created_at,
-      :created_at, :updated_at, )
+      :created_at, :updated_at, :super_admin, )
     end
 end

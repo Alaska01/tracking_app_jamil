@@ -31,7 +31,9 @@
           <%= link_to "All Users", users_path, :class => "nav-link active"  %>
         </li>
 
-        
+        <li class="nav-item">
+          <%= current_user.email %>
+        </li>
 
         <% end %>
 
