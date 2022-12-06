@@ -22,26 +22,29 @@
         <li class="nav-item">
           <%= link_to "Jamil's Logistics", root_path, :class => "nav-link active"  %>
         </li>
-        <% if current_user && current_user.user_admin %> 
+      <% if current_user && current_user.user_admin %> 
         <li class="nav-item">
           <%= link_to "Customers List", customers_path, :class => "nav-link active"  %>
         </li>
-
+        <% if current_user.super_admin %>
         <li class="nav-item">
           <%= link_to "All Users", users_path, :class => "nav-link active"  %>
         </li>
+      <% end %>
 
-        <li class="nav-item">
-          <%= current_user.email %>
-        </li>
-
+      
         <% end %>
 
 
         <% if current_user %>
-        <li class="nav-item">
-        <%= link_to 'Sign Out', destroy_user_session_path, class: 'btn bg-danger', data: { turbo_method: :delete } %>
-        </li>
+
+                    <li class="nav-item">
+            <%= current_user.email %>
+          </li>
+          
+          <li class="nav-item">
+          <%= link_to 'Sign Out', destroy_user_session_path, class: 'btn bg-danger', data: { turbo_method: :delete } %>
+          </li>
         <% end %>
 
     </ul>
