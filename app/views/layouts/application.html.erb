@@ -16,16 +16,22 @@
     
     <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-around container-fluid" >
         <li class="nav-item">
-          <h1>
+          <h2>
             <%= link_to "Home", root_path, :class => "nav-link active"  %>
-          </h1>
+          </h2>
         </li>
     
         <li class="nav-item">
-          <h1>
+          <h2>
             <%= link_to "Policy", pages_index_path, :class => "nav-link active"  %>
-            </h1>
+            </h2>
         </li>
+         <% if !current_user %>
+         <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, :class => "nav-link active"  %>
+        </li>
+
+         <% end %>
       <% if current_user && current_user.user_admin %> 
         <li class="nav-item">
           <%= link_to "Customers List", customers_path, :class => "nav-link active"  %>
@@ -68,7 +74,7 @@
 <div class="container my-5">
   <!-- Footer -->
   <footer
-          class="text-center text-lg-start text-white rounded footer-positioning "
+          class="text-center text-lg-start text-white rounded "
           style="background-color: #929fba"
           >
     <!-- Grid container -->
